@@ -1,0 +1,6 @@
+*.sw*
+*.so*
+*.a*
+*.o*
+github.com
+gopkg.in
