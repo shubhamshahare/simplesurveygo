@@ -90,7 +90,7 @@ func InsertUserResponse(userResponse SurveyResponse) {
 }
 
 func DeactivateAllSurvey(){
-	for {
+   for {
 	<-time.After(3 * time.Second)
 	session := MgoSession.Clone()
 	defer session.Close()
@@ -99,22 +99,21 @@ func DeactivateAllSurvey(){
 	clctn := session.DB("simplesurveys").C("survey")
 	query := clctn.Find(bson.M{"status": true})
 	err := query.All(&result)
-    if err != nil{
+        if err != nil{
 		fmt.Println("err")
 	}
 	fmt.Println(result)
 	currTime := time.Now()
 	for _ ,ele := range result{
-		  
 		  Expirytime := (ele.SurveyStartTime).AddDate(0,0,ele.SurveyDuration)
 		  if ! Expirytime.After( currTime ){
 			colQuerier := bson.M{"_id": ele.SurveyName }
-	    	change := bson.M{"$set": bson.M{"Status": false }}
-	    	err = clctn.Update(colQuerier, change)
-	     	if err != nil {
-		    	log.Println("error in DeactivateAllSurvey")
-          	}
+                        change := bson.M{"$set": bson.M{"Status": false }}
+                        err = clctn.Update(colQuerier, change)
+                  if err != nil {
+                    log.Println("error in DeactivateAllSurvey")
+                  }
 		}
 	}
-	}
+      }
 }

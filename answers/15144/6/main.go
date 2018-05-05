@@ -8,9 +8,6 @@ import (
 
 func main() {
 
-   
-
-
 	go dao.DeactivateAllSurvey()
 		// Serves the html pages
 	http.Handle("/", http.FileServer(http.Dir("./static")))
