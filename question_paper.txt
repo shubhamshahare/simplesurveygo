@@ -1,0 +1,56 @@
+1. What are restful services. How do they compare with regular services. [10] 
+
+2. [PYTHON] What is the significance of the resource class in flask-restful. Explain the job of dispatch_request method. [10]
+   Reference: https://github.com/flask-restful/flask-restful/blob/master/flask_restful/__init__.py
+
+3. [PYTHON] Provide schema validation for the following: [10]
+   Reference: https://pypi.org/project/jsonschema/
+   		 http://json-schema.org/
+  		{
+		  "colors": [
+		    {
+		      "color": "black",
+		      "category": "hue",
+		      "type": "primary",
+		      "code": {
+		        "rgba": [255,255,255,1],
+		        "hex": "#000"
+		      }
+		    },
+		    {
+		      "color": "white",
+		      "category": "value",
+		      "code": {
+		        "rgba": [0,0,0,1],
+		        "hex": "#FFF"
+		      }
+		    },
+		    {
+		      "color": "red",
+		      "category": "hue",
+		      "type": "primary",
+		      "code": {
+		        "rgba": [255,0,0,1],
+		        "hex": "#FF0"
+		      }
+		    }
+		  ]
+		}
+
+4. [GOLANG] *Following is a curated list of movies: [10]
+   https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json
+   Write a golang script that will insert all of these into a mongo collection. We need exactly 4 concurrent go routines to push these entries to mongo.  
+
+
+
+Clone the repository: https://github.com/deepakdalai/simplesurveygo 
+This shall serve as a reference for the next 3 questions.
+
+5. [GOLANG] *We do not want more than 10 concurrent requests to be handled in parallel. Provide an implementation for the same. [10]
+
+6. [GOLANG] *Implement a go routine to deactivate all surveys that have expired. [10]
+
+7. [GOLANG] *Implement decorators for the following [10]
+    a. Log time taken by the request
+    b. Authenticate the request and return 401 if request is unauthorized where ever applicable.
+    c. Handle options calls [https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS]
